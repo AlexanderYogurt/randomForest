@@ -255,7 +255,7 @@ void classRF(double *x, int *dimx, int *cl, int *ncl, int *cat, int *maxcat,
 							k = strata_idx[n][ktmp];
 							tclasspop[cl[k] - 1] += classwt[cl[k] - 1];
 							win[k] += classwt[cl[k] - 1];
-							jin[k] = 1;
+							jin[k]++;
 						}
 					}
 				} else { /* stratified sampling w/o replacement */
@@ -275,7 +275,7 @@ void classRF(double *x, int *dimx, int *cl, int *ncl, int *cat, int *maxcat,
 							last--;
 							tclasspop[cl[k] - 1] += classwt[cl[k]-1];
 							win[k] += classwt[cl[k]-1];
-							jin[k] = 1;
+							jin[k]++;
 						}
 					}
 				}
@@ -291,7 +291,7 @@ void classRF(double *x, int *dimx, int *cl, int *ncl, int *cat, int *maxcat,
 							k = unif_rand() * nsample;
 							tclasspop[cl[k] - 1] += classwt[cl[k]-1];
 							win[k] += classwt[cl[k]-1];
-							jin[k] = 1;
+							jin[k]++;
 						}
 					} else {
 						for (n = 0; n < nsample; ++n) nind[n] = n;
@@ -303,7 +303,7 @@ void classRF(double *x, int *dimx, int *cl, int *ncl, int *cat, int *maxcat,
 							last--;
 							tclasspop[cl[k] - 1] += classwt[cl[k]-1];
 							win[k] += classwt[cl[k]-1];
-							jin[k] = 1;
+							jin[k]++;
 						}
 					}
 					/* check if any class is missing in the sample */
